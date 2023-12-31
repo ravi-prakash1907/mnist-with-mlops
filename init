@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Initializing MLflow"
+mlflow server --host 0.0.0.0 &
+
+echo "Initializing Airflow"
+
+export AIRFLOW_HOME=./airflow
+airflow db init
+airflow users create --role Admin --username admin --email admin --firstname admin --lastname admin  --password admin
+
+nohup airflow webserver >> ./airflow/logs/webserver.log &
+nohup airflow scheduler $* >> ./airflow/logs/scheduler.log &
+nohup airflow celery worker >> ./airflow/logs/worker.log
+
+
+

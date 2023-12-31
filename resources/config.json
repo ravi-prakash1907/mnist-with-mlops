@@ -1,0 +1,19 @@
+{
+  "dag": [{
+    "dagname": "name",
+    "dagdata": "somedata"
+  },{
+    "dagname": "name2",
+    "dagdata": "somedata2"
+  }],
+
+  "model":[ {
+    "name": "modelname",
+    "modelparam1": "somedata"
+    },{
+    "name": "somthing",
+    "param1": "somthing"
+    }],
+
+  "framework" : [{}]
+}
